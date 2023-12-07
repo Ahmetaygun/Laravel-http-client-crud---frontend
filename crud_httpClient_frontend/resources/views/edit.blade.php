@@ -12,6 +12,7 @@
                 <p>Error: {{ $errors->first() }}</p>
             </div>
         @endif
+        <!-- kaydedildi mesajı -->
         @if(session('message'))
             <div class="alert alert-success">
                 {{ session('message') }}

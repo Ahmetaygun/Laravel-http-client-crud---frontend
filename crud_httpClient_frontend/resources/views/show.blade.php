@@ -3,15 +3,16 @@
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <title>Detay Post</title>
+    <title>SHOW Post</title>
 </head>
 <body>
-    <h1>Detay Post</h1>
+    <h1>SHOW POST</h1>
     <a href="{{ route('index') }}" class="btn btn-danger">BACK</a>
 
     @if ($errors->any())
         <p>Error: {{ $errors->first() }}</p>
     @endif
+    <!--kaydedildi mesajı-->
     @if(session('message'))
     <div class="alert alert-success">
         {{ session('message') }}

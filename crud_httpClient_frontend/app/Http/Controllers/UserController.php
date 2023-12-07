@@ -17,10 +17,10 @@ class UserController extends Controller
         $data = $response->json();
         $token = $data['token'];
         session(['token' => $token]);
-        $token = session('token');
+    $token = session('token');
         if ($token==0) {
             session()->forget('token');
-            return redirect()->route('login')->with('error', 'Hatalı Giriş Tekrar Deneyin!');
+            return redirect()->route('login')->with('error', 'GİRİŞ BAŞARISIZ!');
         }
         return redirect()->route('home2')->with('message', 'GİRİŞ BASARILI');
     }

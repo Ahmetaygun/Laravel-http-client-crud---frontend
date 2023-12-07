@@ -12,10 +12,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // Index action
     public function test()
     {
         $token = session('token');
-        return $token;
+        echo "token  = " . $token;
     }
 
     public function index()
@@ -30,7 +32,7 @@ class PostController extends Controller
                 return redirect()->route('index')->with('error', 'Gönderiler yüklenirken bir hata oluştu.');
             }
         } else {
-            return redirect()->route('home')->with('error', 'Token yok!');
+            return redirect()->route('home')->with('error', 'Giriş yapılmamış!');
         }
     }
 
@@ -54,7 +56,7 @@ class PostController extends Controller
     {
         $token = session('token');
         if (!$token) {
-            return response()->json(['error' => 'Token yok']);
+            return redirect()->route('login')->with('error', 'Giriş Yapılmamış !');
         }
     
         try {
@@ -76,6 +78,9 @@ class PostController extends Controller
         }
     }
     
+    
+
+    // DELETE isteği örneği
     public function destroy($id)
     {
         try {
@@ -102,7 +107,7 @@ class PostController extends Controller
     {
         $token = session('token');
         if (!$token) {
-            return redirect()->route('index')->with('error', 'Token yok!');
+            return redirect()->route('index')->with('error', 'Giriş Yapılmamış!');
         }
 
         try {
@@ -122,7 +127,7 @@ class PostController extends Controller
     {
         $token = session('token');
         if (!$token) {
-            return response()->json(['error' => 'Token not found']);
+            return response()->json(['error' => 'Giriş Yapılmamış']);
         }
 
         try {
@@ -143,7 +148,7 @@ class PostController extends Controller
     {
         $token = session('token');
         if (!$token) {
-            return redirect()->route('index')->with('error', 'Token yok!');
+            return redirect()->route('index')->with('error', 'Giriş Yapılmamış!');
         }
     
         try {
